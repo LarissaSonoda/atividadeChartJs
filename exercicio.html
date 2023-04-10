@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Exercício ChartJs</title>
+</head>
+
+<body style="display: flex">
+    <div style="position: relative; height:40vh; width:40vw">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <div style="position: relative; height:40vh; width:40vw">
+        <canvas id="myChart2"></canvas>
+    </div>
+</body>
+
+</html>
+<script>
+    //labels primeiro gráfico
+    const labels = ['12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00'
+    ];
+    //labels segundo gráfico
+    const labels2 = [
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho'
+    ];
+
+    //dados do primeiro gráfico
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Temperatura',
+            backgroundColor: '#f06a86',
+            borderColor: '#f06a86',
+            data: [30, 29, 28, 25, 22, 23],
+            borderWidth: 2
+        },
+        {
+            label: 'Umidade',
+            backgroundColor: '#34a3eb',
+            borderColor: '#34a3eb',
+            data: [80, 82, 80, 85, 80, 83],
+            borderWidth: 2,
+        }
+        ]
+    };
+
+    //dados do segundo gráfico
+    const data2 = {
+        labels: labels2,
+        datasets: [{
+            label: 'Temperatura Média',
+            backgroundColor: '#f06a86',
+            data: [22, 24, 27, 23, 20, 18]
+        },
+        {
+            label: 'Umidade Média',
+            backgroundColor: '#34a3eb',
+            data: [90, 89, 93, 87, 88, 82]
+        }
+    ]
+    }
+
+
+    //gráfico 1 - configurações
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+    //gráfico 2 - configurações
+    const config2 = {
+        type: 'bar',
+        data: data2,
+        options: {}
+    };
+
+</script>
+<script>
+    //define o elemento na tela
+    const graf1 = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+    const graf2 = new Chart(
+        document.getElementById('myChart2'),
+        config2
+    );
+</script>
